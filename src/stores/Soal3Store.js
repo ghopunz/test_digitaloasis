@@ -30,6 +30,7 @@ class Soal3Store{
             let length_second_word = second_word.length
 
             // alert('first: ' + first_word + 'second: ' +second_word)
+            
             //Check if Anagram
             while(isAnagram && i < length_second_word){
 
@@ -44,7 +45,7 @@ class Soal3Store{
                         
                         isFound = true;
 
-                        //REMOVE
+                        //REMOVE CHAR IF IN FIRST WORD IS FOUND
                         let new_first_word = first_word.slice(0, j) + first_word.slice(j+1, first_word.length);
 
                         first_word = new_first_word;
