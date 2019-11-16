@@ -16,21 +16,19 @@ import{
     Item,
 } from 'native-base'
 
-import Colors from '../styles/colors';
-
-import Soal1Item from '../components/Soal1Item';
 
 import { inject, observer } from 'mobx-react/native';
+
 
 @inject('store')
 
 @observer
-export default class Soal1Screen extends Component{
+export default class Soal3Screen extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-           number:''
+           words:''
 
         }
     }
@@ -39,7 +37,7 @@ export default class Soal1Screen extends Component{
 
         let { store } = this.props;
 
-        store.soal1Store.loopingWord(this.state.number);
+        store.soal3Store.anagramProcess(this.state.words);
 
     }
 
@@ -48,18 +46,9 @@ export default class Soal1Screen extends Component{
         let { store } = this.props;
         
         return(
-            <FlatList
-                // data = {this.state.users}
-                data = {store.soal1Store.list_word}
-                extraData = {this.state}
-                renderItem = {({item, index}) => (
-                    <Soal1Item 
-                        {...item}
-                    />
-                )}
-
-                keyExtractor = {(item, index) => index.toString()}
-            />
+            <Text>
+                Output: {store.soal3Store.resultAnagram}
+            </Text>
         )
     }
 
@@ -74,9 +63,9 @@ export default class Soal1Screen extends Component{
                 >
                     <Item >
                         <Input
-                            keyboardType='numeric'
-                            placeholder='Input number'
-                            onChangeText={(text) => this.setState({number: text})}
+                            
+                            placeholder='Input word'
+                            onChangeText={(text) => this.setState({words: text})}
                         />
                     </Item>
                     
