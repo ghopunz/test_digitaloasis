@@ -13,6 +13,7 @@ class Soal4Store{
 
         for(let i = 0; i < lg_input; i++){
 
+            // REPEAT '0'
             let str = input[i] + '0'.repeat(lg_input-1-i)
             this.list_number.push({number: str})
         }
@@ -20,11 +21,7 @@ class Soal4Store{
         // alert(JSON.stringify(this.list_number))
 
     }
-    
-    // @computed get data_list_word(){
-
-    //     return this.list_word;
-    // }
+ 
 }
 
 const soal4Store = new Soal4Store();

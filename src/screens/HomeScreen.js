@@ -78,6 +78,19 @@ export default class HomeScreen extends Component{
                             </Text>
                         </Button>
                     </View>
+
+                    <View style={{marginTop:20}}>
+
+                        <Button
+                            info
+                            
+                            onPress={() => Actions.soal_5()}
+                        >
+                            <Text>
+                                Soal 5
+                            </Text>
+                        </Button>
+                    </View>
                     
                 </Content>
 

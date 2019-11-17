@@ -20,6 +20,8 @@ import HomeScreen from '../screens/HomeScreen';
 import Soal1Screen from '../screens/Soal1Screen';
 import Soal3Screen from '../screens/Soal3Screen';
 import Soal4Screen from '../screens/Soal4Screen';
+import Soal5Screen from '../screens/Soal5Screen';
+import DetailPegawaiScreen from '../screens/DetailPegawaiScreen';
 
 import { inject, observer } from 'mobx-react/native';
 
@@ -40,13 +42,6 @@ export default class Routers extends Component {
 	startWithCache(){
 
 		const { store } = this.props;
-
-		// AsyncStorage.getItem('registered_time_zone_id').then((registered_time_zone_id) => {
-		// 	// REGISTEREDTZ = registered_time_zone_id
-		// 	store.userStore.user_registered_time_zone_id = parseInt(registered_time_zone_id);
-		// 	this.setState({isLoaded:true});
-		// })
-
 		
 	}
 
@@ -69,6 +64,8 @@ export default class Routers extends Component {
 					<Scene key="soal_1"  component={Soal1Screen} title="Soal 1"/>
 					<Scene key="soal_3"  component={Soal3Screen} title="Soal 3"/>
 					<Scene key="soal_4"  component={Soal4Screen} title="Soal 4"/>
+					<Scene key="soal_5"  component={Soal5Screen} title="Soal 5"/>
+					<Scene key="detail_pegawai"  component={DetailPegawaiScreen} title="Detail Pegawai"/>
 					
 					
 				</Scene>
