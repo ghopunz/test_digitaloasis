@@ -55,6 +55,7 @@ class Soal5Store{
             photo: require('../resources/images/photos/goku.jpg')
         },
 
+
     ];
 
     @action sortingData(input){
@@ -71,14 +72,14 @@ class Soal5Store{
             // alert(JSON.stringify(this.list_pegawai))
             const sortedListPegawai = this.list_pegawai.sort((a, b) => a.nip - b.nip);
             this.list_pegawai.replace(sortedListPegawai);
-            alert(JSON.stringify(this.list_pegawai))
+            // alert(JSON.stringify(this.list_pegawai))
         }
         //SORTING BY NAME
         else{
             // const sortedListPegawai = this.list_pegawai.sort((a, b) => a.name - b.name);
             const sortedListPegawai = this.list_pegawai.sort((a, b) => a.name.localeCompare(b.name))
             this.list_pegawai.replace(sortedListPegawai);
-            alert(JSON.stringify(this.list_pegawai))
+            // alert(JSON.stringify(this.list_pegawai))
             
         }
 
@@ -99,6 +100,15 @@ class Soal5Store{
         // alert('start: ' + JSON.stringify(start) + ' end: ' + JSON.stringify(end))
         this.list_pegawai = start.concat(end)
     }
+
+    // @action searchPegawai(input){
+
+    //     let searchedData = _.filter(this.list_pegawai, function(data) { 
+    //         return data.name == input; 
+    //     });
+
+    //     alert(JSON.stringify(searchedData))
+    // }
  
 }
 

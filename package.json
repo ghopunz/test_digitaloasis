@@ -16,7 +16,8 @@
     "react": "16.8.6",
     "react-native": "0.60.5",
     "react-native-easy-grid": "^0.2.0",
-    "react-native-router-flux": "^4.0.6"
+    "react-native-router-flux": "^4.0.6",
+    "react-native-search-filter": "^0.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

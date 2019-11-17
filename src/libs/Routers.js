@@ -22,6 +22,7 @@ import Soal3Screen from '../screens/Soal3Screen';
 import Soal4Screen from '../screens/Soal4Screen';
 import Soal5Screen from '../screens/Soal5Screen';
 import DetailPegawaiScreen from '../screens/DetailPegawaiScreen';
+import CreateUserScreen from '../screens/CreateUserScreen';
 
 import { inject, observer } from 'mobx-react/native';
 
@@ -66,6 +67,7 @@ export default class Routers extends Component {
 					<Scene key="soal_4"  component={Soal4Screen} title="Soal 4"/>
 					<Scene key="soal_5"  component={Soal5Screen} title="Soal 5"/>
 					<Scene key="detail_pegawai"  component={DetailPegawaiScreen} title="Detail Pegawai"/>
+					<Scene key="create_user"  component={CreateUserScreen} title="Create Pegawai"/>
 					
 					
 				</Scene>

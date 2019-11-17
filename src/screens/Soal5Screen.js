@@ -15,13 +15,20 @@ import{
     Input,
     Item,
     Picker,
+    Fab,
+    Icon,
 } from 'native-base'
 
 import Colors from '../styles/colors';
 
 import Soal5Item from '../components/Soal5Item';
 
+import SearchInput, { createFilter } from 'react-native-search-filter';
+
 import { inject, observer } from 'mobx-react/native';
+import { Actions } from 'react-native-router-flux';
+
+const KEYS_TO_FILTERS = ['nip', 'name'];
 
 @inject('store')
 
@@ -32,6 +39,7 @@ export default class Soal5Screen extends Component{
         super(props);
         this.state = {
             sorting_selected: 0,
+            searchTerm:'',
         }
     }
 
@@ -47,10 +55,13 @@ export default class Soal5Screen extends Component{
 
         let { store } = this.props;
         
+        let filteredEmails = store.soal5Store.list_pegawai.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+
         return(
             <FlatList
                 // data = {this.state.users}
-                data = {store.soal5Store.list_pegawai}
+                // data = {store.soal5Store.list_pegawai}
+                data = {filteredEmails}
                 extraData = {this.state}
                 renderItem = {({item, index}) => (
                     <Soal5Item 
@@ -74,6 +85,15 @@ export default class Soal5Screen extends Component{
         store.soal5Store.sortingData(value);
     }
 
+    componentDidMount(){
+        let { store } = this.props;
+
+        store.soal5Store.sortingData(this.state.sorting_selected);
+    }
+
+    searchUpdated(term) {
+        this.setState({ searchTerm: term })
+    }
 
     render(){
         let { store } = this.props;
@@ -113,10 +133,27 @@ export default class Soal5Screen extends Component{
                     </Picker>
                     
                 </View>
+                <View style={{marginLeft: 20, marginTop: 10, marginRight: 20}}>
+                    <SearchInput 
+                        onChangeText={(term) => { this.searchUpdated(term) }} 
+                        style={styles.searchInput}
+                        placeholder="Type a NIP or Name to search"
+                        />
+                </View>
+
                 <Content>
                    {this.renderResult()}
                     
                 </Content>
+
+                <Fab
+                    
+                    style={{ backgroundColor: Colors.darkBlue }}
+                    position="bottomRight"
+                    onPress={() => Actions.create_user()}>
+                    <Icon name="add" />
+                    
+                </Fab>
 
                
             </Container>
@@ -129,6 +166,11 @@ const styles = StyleSheet.create({
     content:{
         padding: 20
     },
-
+    searchInput:{
+        padding: 10,
+        borderColor: Colors.gray,
+        borderWidth: 0.7,
+        marginBottom: 10,
+    }
     
 })
