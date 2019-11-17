@@ -14,6 +14,7 @@ import{
     Button,
     Input,
     Item,
+    Picker,
 } from 'native-base'
 
 import Colors from '../styles/colors';
@@ -30,7 +31,7 @@ export default class Soal5Screen extends Component{
     constructor(props){
         super(props);
         this.state = {
-
+            sorting_selected: 0,
         }
     }
 
@@ -62,6 +63,17 @@ export default class Soal5Screen extends Component{
         )
     }
 
+    onValueChangeSorting(value) {
+        let { store } = this.props;
+
+        this.setState({
+            sorting_selected: value
+        });
+
+        
+        store.soal5Store.sortingData(value);
+    }
+
     render(){
         let { store } = this.props;
 
@@ -69,11 +81,35 @@ export default class Soal5Screen extends Component{
         return(
             <Container>
                 <View
-                    style={{padding: 20}}
+                    style={{marginLeft: 20, marginTop: 20}}
                 >
-                    <Text>
+                    <Text style={{fontSize: 20, alignSelf:'center', fontWeight:'bold'}}>
                         Data Pegawai
                     </Text>
+                    
+                </View>
+
+                <View
+                    style={{marginLeft: 20, marginTop: 10}}
+                >
+
+                    <View>
+
+                        <Text>
+                            Sort
+                        </Text>
+                    </View>
+                    <Picker
+                        note
+                        mode="dropdown"
+                        style={{ width: 150 }}
+                        selectedValue={this.state.sorting_selected}
+                        onValueChange={this.onValueChangeSorting.bind(this)}
+                    >
+                        <Picker.Item label="NIP" value={0} />
+                        <Picker.Item label="Name" value={1}/>
+                        
+                    </Picker>
                     
                 </View>
                 <Content>
