@@ -106,7 +106,7 @@ export default class EditUserScreen extends Component{
             store.soal5Store.editPegawai(name, email, nip, gender, selectedHobbies, attachmentSource, old_nip);
 
             Toast.show({
-                text: "User has been created!",
+                text: "User has been updated!",
                 // buttonText: "Okay",
                 duration: 3000
             })

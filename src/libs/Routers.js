@@ -62,11 +62,11 @@ export default class Routers extends Component {
 				<Scene key='root'>
 					{/* <Scene key='cobamodal' component={CobaModal} title="Show Ticket" hideNavBar initial/> */}
 				
-					<Scene key="home" hideNavBar  component={HomeScreen} title="Home"/>
+					<Scene key="home" initial hideNavBar  component={HomeScreen} title="Home"/>
 					<Scene key="soal_1"  component={Soal1Screen} title="Soal 1"/>
 					<Scene key="soal_3"  component={Soal3Screen} title="Soal 3"/>
 					<Scene key="soal_4"  component={Soal4Screen} title="Soal 4"/>
-					<Scene key="soal_5"  initial component={Soal5Screen} title="Soal 5"/>
+					<Scene key="soal_5"   component={Soal5Screen} title="Soal 5"/>
 					<Scene key="detail_pegawai"  component={DetailPegawaiScreen} title="Detail Pegawai"/>
 					<Scene key="create_user"  component={CreateUserScreen} title="Create Pegawai"/>
 					<Scene key="edit_user"  component={EditUserScreen} title="Edit Pegawai"/>
