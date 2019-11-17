@@ -1,0 +1,1 @@
+UPDATE pendaftaran SET tahun = 2016 WHERE id >= 20 AND id <=100
