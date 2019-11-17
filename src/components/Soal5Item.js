@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     TouchableOpacity,
+    Alert,
 } from 'react-native';
 
 import{
@@ -17,6 +18,11 @@ import {Grid, Row, Col} from 'react-native-easy-grid';
 import Colors from '../styles/colors';
 import { Actions } from 'react-native-router-flux';
 
+import { inject, observer } from 'mobx-react/native';
+
+@inject('store')
+
+@observer
 
 export default class Soal1Item extends Component{
 
@@ -24,52 +30,85 @@ export default class Soal1Item extends Component{
         super(props);
         this.state = {
            
-
+            isDeleted: false,
         }
+    }
+
+    onHandleRemove(){
+        
+        let { store, nip } = this.props;
+
+        store.soal5Store.removePegawai(nip);
+        // this.setState({isDeleted: true})
+    }
+
+    removeConfirmation(){
+        Alert.alert(
+            'Delete Pegawai',
+            'Are You Sure?',
+            [
+            //   {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+              {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+              },
+              {text: 'OK', onPress: () => this.onHandleRemove()},
+            ],
+            {cancelable: false},
+        );
     }
 
     render(){
         let { name, nip, photo, email, gender, hoby } = this.props;
 
+        // if(this.state.isDeleted){
+        //     return null;
+        // }
+        // else{
 
-        return(
-            <TouchableOpacity 
-                style={styles.content}
-                onPress={() => Actions.push('detail_pegawai', {data: this.props})}    
-            >
-                <Row>
-                    <Col size={1}>
-                        <Thumbnail source={photo} />
-                        {/* <Thumbnail source={{uri: '../resources/images/photos/kemot.jpeg'}} /> */}
-                    </Col>
-                    <Col size={4} style={{marginLeft: 25}}>
-                        <Row>
-                            <Text>
-                                {nip}
-                            </Text>
-                        </Row>
-                        <Row>
-                            <Text style={{fontSize: 14, color: Colors.gray}}>
-                                {name}
-                            </Text>
-                        </Row>
-                    </Col>
-                    <Col size={1} style={{alignItems:'center', justifyContent:'center'}}>
-                        <TouchableOpacity>
+            return(
+                <TouchableOpacity 
+                    style={styles.content}
+                    onPress={() => Actions.push('detail_pegawai', {data: this.props})}    
+                >
+                    <Row>
+                        <Col size={1}>
+                            <Thumbnail source={photo} />
+                            {/* <Thumbnail source={{uri: '../resources/images/photos/kemot.jpeg'}} /> */}
+                        </Col>
+                        <Col size={4} style={{marginLeft: 25}}>
+                            <Row>
+                                <Text>
+                                    {nip}
+                                </Text>
+                            </Row>
+                            <Row>
+                                <Text style={{fontSize: 14, color: Colors.gray}}>
+                                    {name}
+                                </Text>
+                            </Row>
+                        </Col>
+                        <Col size={1} style={{alignItems:'center', justifyContent:'center'}}>
+                            <TouchableOpacity>
+    
+                                <Icon name="md-create" style={[styles.icon, {color: Colors.darkBlue}]}/>
+                            </TouchableOpacity>
+                        </Col>
+                        <Col size={1} style={{alignItems:'center', justifyContent:'center'}}>
+                            <TouchableOpacity
+                                onPress={() => this.removeConfirmation()}
+                            >
+    
+                                <Icon name="md-trash" style={[styles.icon, {color: Colors.red}]}/>
+                            </TouchableOpacity>
+                        </Col>
+                        
+                    </Row>
+                </TouchableOpacity>
+            )
+        // }
 
-                            <Icon name="md-create" style={[styles.icon, {color: Colors.darkBlue}]}/>
-                        </TouchableOpacity>
-                    </Col>
-                    <Col size={1} style={{alignItems:'center', justifyContent:'center'}}>
-                        <TouchableOpacity>
-
-                            <Icon name="md-trash" style={[styles.icon, {color: Colors.red}]}/>
-                        </TouchableOpacity>
-                    </Col>
-                    
-                </Row>
-            </TouchableOpacity>
-        )
     }
 }
 

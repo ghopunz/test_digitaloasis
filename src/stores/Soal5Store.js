@@ -1,9 +1,11 @@
 import { observable, action, computed } from 'mobx';
 
+import _ from 'lodash';
 
 class Soal5Store{
 
-    @observable points = [40, 100, 1, 5, 25, 10];
+    // @observable points = [40, 100, 1, 5, 25, 10];
+
     @observable list_pegawai = [
         {
             name:'Virgo Asmita',
@@ -80,7 +82,22 @@ class Soal5Store{
             
         }
 
-        
+    }
+
+    @action removePegawai(nip){
+
+        // alert(nip)
+        // _.remove(this.list_pegawai, function(data) {
+        //     return data.nip === nip;
+        // });
+
+        // FIND INDEX
+        let index = this.list_pegawai.findIndex(data => data.nip === nip);
+
+        let start = this.list_pegawai.slice(0, index);
+        let end = this.list_pegawai.slice(index + 1);
+        // alert('start: ' + JSON.stringify(start) + ' end: ' + JSON.stringify(end))
+        this.list_pegawai = start.concat(end)
     }
  
 }

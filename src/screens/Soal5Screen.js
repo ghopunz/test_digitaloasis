@@ -74,6 +74,7 @@ export default class Soal5Screen extends Component{
         store.soal5Store.sortingData(value);
     }
 
+
     render(){
         let { store } = this.props;
 
