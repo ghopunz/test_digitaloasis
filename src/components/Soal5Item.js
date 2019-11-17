@@ -90,7 +90,9 @@ export default class Soal1Item extends Component{
                             </Row>
                         </Col>
                         <Col size={1} style={{alignItems:'center', justifyContent:'center'}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => Actions.push('edit_user', {data: this.props})}
+                            >
     
                                 <Icon name="md-create" style={[styles.icon, {color: Colors.darkBlue}]}/>
                             </TouchableOpacity>

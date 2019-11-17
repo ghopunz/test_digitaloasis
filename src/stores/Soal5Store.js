@@ -113,6 +113,22 @@ class Soal5Store{
         })
     }
 
+    @action editPegawai(name, email, nip, gender, hobby, photo, old_nip){
+
+        // FIRST REMOVE OLD DATA
+        this.removePegawai(old_nip);
+
+        // ADD NEW DATA
+        this.list_pegawai.push({
+            name: name,
+            email: email,
+            nip: nip,
+            gender: gender,
+            hobby:hobby,
+            photo: photo,
+        })
+    }
+
     // @action searchPegawai(input){
 
     //     let searchedData = _.filter(this.list_pegawai, function(data) { 
