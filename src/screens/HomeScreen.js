@@ -48,7 +48,7 @@ export default class HomeScreen extends Component{
                             onPress={() => Actions.soal_1()}
                         >
                             <Text>
-                                Soal 1
+                                Soal 1 (PRINT DIGITAL OASIS)
                             </Text>
                         </Button>
                     </View>
@@ -61,7 +61,7 @@ export default class HomeScreen extends Component{
                             onPress={() => Actions.soal_3()}
                         >
                             <Text>
-                                Soal 3
+                                Soal 3 (ANAGRAM)
                             </Text>
                         </Button>
                     </View>
@@ -74,7 +74,7 @@ export default class HomeScreen extends Component{
                             onPress={() => Actions.soal_4()}
                         >
                             <Text>
-                                Soal 4
+                                Soal 4 (SEGITIGA ZERO)
                             </Text>
                         </Button>
                     </View>
@@ -87,7 +87,7 @@ export default class HomeScreen extends Component{
                             onPress={() => Actions.soal_5()}
                         >
                             <Text>
-                                Soal 5
+                                Soal 5 (CRUD)
                             </Text>
                         </Button>
                     </View>

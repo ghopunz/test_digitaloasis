@@ -27,25 +27,36 @@ export default class HomeScreen extends Component{
         }
     }
 
-    renderHoby(hoby){
+    renderHobby(hobby){
 
-        let labelHoby = []
+        let labelHobby = []
 
-        for(i = 0; i < hoby.length; i++){
-            labelHoby.push(hoby[i].label);
+        for(i = 0; i < hobby.length; i++){
+            labelHobby.push(hobby[i].label);
         }
 
-        return labelHoby;
+        return labelHobby;
+    }
+
+    renderGender(value){
+
+        if(value == 0){
+            return 'Laki-laki'
+        }
+        else{
+            return 'Perempuan'
+        }
     }
 
     renderData(){
-        let { name, nip, photo, email, gender, hoby } = this.props.data;
+        let { name, nip, photo, email, gender, hobby } = this.props.data;
 
-        let hobbies = this.renderHoby(hoby).join();
+        let hobbies = this.renderHobby(hobby).join();
+        let genderLabel = this.renderGender(gender);
 
         let data = [];
         let labelName = ['NIP', 'Name', 'Email', 'Gender', 'Hoby'];
-        let valueData = [nip, name, email, gender, hobbies]
+        let valueData = [nip, name, email, genderLabel, hobbies]
 
         for(let i = 0; i < labelName.length; i++){
             data.push(
@@ -73,7 +84,7 @@ export default class HomeScreen extends Component{
     }
 
     render(){
-        let { name, nip, photo, email, gender, hoby } = this.props.data;
+        let { name, nip, photo, email, gender, hobby } = this.props.data;
 
 
         return(

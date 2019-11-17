@@ -91,6 +91,11 @@ export default class Soal5Screen extends Component{
         store.soal5Store.sortingData(this.state.sorting_selected);
     }
 
+    // getRefresh = () => {
+
+    //     this.componentDidMount()
+    // }
+
     searchUpdated(term) {
         this.setState({ searchTerm: term })
     }

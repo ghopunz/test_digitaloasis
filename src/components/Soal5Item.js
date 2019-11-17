@@ -60,7 +60,7 @@ export default class Soal1Item extends Component{
     }
 
     render(){
-        let { name, nip, photo, email, gender, hoby } = this.props;
+        let { name, nip, photo, email, gender, hobby } = this.props;
 
         // if(this.state.isDeleted){
         //     return null;

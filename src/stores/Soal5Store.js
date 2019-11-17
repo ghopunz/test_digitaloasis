@@ -10,9 +10,9 @@ class Soal5Store{
         {
             name:'Virgo Asmita',
             email:'asmita@gmail.com',
-            gender:'Laki-laki',
+            gender: 0,
             nip: 2001,
-            hoby:[
+            hobby:[
                 {
                     label:'Sepak bola',
                     value: 1
@@ -28,9 +28,9 @@ class Soal5Store{
         {
             name:'Kento Momota',
             email:'kemot@gmail.com',
-            gender:'Laki-laki',
+            gender:0,
             nip: 2016,
-            hoby:[
+            hobby:[
                 {
                     label:'Sepak bola',
                     value: 1
@@ -43,9 +43,9 @@ class Soal5Store{
         {
             name:'Son Goku',
             email:'goku@gmail.com',
-            gender:'Laki-laki',
+            gender: 0,
             nip: 2018,
-            hoby:[
+            hobby:[
                 {
                     label:'Tenis Meja',
                     value: 3
@@ -99,6 +99,18 @@ class Soal5Store{
         let end = this.list_pegawai.slice(index + 1);
         // alert('start: ' + JSON.stringify(start) + ' end: ' + JSON.stringify(end))
         this.list_pegawai = start.concat(end)
+    }
+
+    @action addPegawai(name, email, nip, gender, hobby, photo){
+
+        this.list_pegawai.push({
+            name: name,
+            email: email,
+            nip: nip,
+            gender: gender,
+            hobby:hobby,
+            photo: photo,
+        })
     }
 
     // @action searchPegawai(input){
